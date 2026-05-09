@@ -1,5 +1,6 @@
 import alchemy from "alchemy";
-import { Astro, CloudflareStateStore } from "alchemy/cloudflare";
+import { Astro } from "alchemy/cloudflare";
+import { CloudflareStateStore } from "alchemy/state";
 import { config } from "dotenv";
 
 config({ path: "./.env" });
