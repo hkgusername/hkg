@@ -1,0 +1,30 @@
+{
+  "name": "hkg",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "check-types": "pnpm -r check-types",
+    "dev:web": "pnpm --filter web dev",
+    "deploy": "pnpm --filter @hkg/infra deploy",
+    "destroy": "pnpm --filter @hkg/infra destroy",
+    "check": "biome check --write ."
+  },
+  "dependencies": {
+    "@hkg/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@cloudflare/workers-types": "catalog:",
+    "@hkg/config": "workspace:*",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@11.0.8"
+}

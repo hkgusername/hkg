@@ -1,0 +1,3 @@
+{
+  "extends": "@hkg/config/tsconfig.base.json"
+}
