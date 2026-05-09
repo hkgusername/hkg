@@ -7,13 +7,22 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "dev:bare": "astro dev"
+    "dev": "ASTRO_LOCAL_NODE=1 astro dev",
+    "dev:bare": "astro dev",
+    "dev:alchemy": "astro dev"
   },
   "dependencies": {
     "@astrojs/node": "^10.0.0-beta.9",
+    "@astrojs/react": "^5.0.4",
     "@hkg/env": "workspace:*",
     "astro": "^6.0.1",
+    "clsx": "^2.1.1",
     "dotenv": "catalog:",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.14.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwind-merge": "^3.5.0",
     "zod": "catalog:"
   },
   "devDependencies": {
@@ -21,6 +30,8 @@
     "@cloudflare/workers-types": "catalog:",
     "@hkg/config": "workspace:*",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "alchemy": "catalog:",
     "tailwindcss": "^4.1.18",
     "typescript": "catalog:"

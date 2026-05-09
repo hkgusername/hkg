@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contacts = [
+  {
+    label: "Gmail",
+    value: "hkg@gmail.com",
+    href: "mailto:hkg@gmail.com",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+  },
+  {
+    label: "Phone / Signal",
+    value: "+1 (xxx) xxx-xxxx",
+    href: "tel:+1xxxxxxxxxx",
+    note: "Signal preferred",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+  },
+  {
+    label: "Twitter / X",
+    value: "@hkg",
+    href: "https://twitter.com/hkg",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16H20L8.267 4zM4 20l6.768-6.768M15.232 9.232L20 4"/></svg>`,
+  },
+  {
+    label: "Instagram",
+    value: "@hkg",
+    href: "https://instagram.com/hkg",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>`,
+  },
+  {
+    label: "Discord",
+    value: "hkg",
+    href: "https://discord.com/users/hkg",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M7.5 7.2C8.9 6.4 10.4 6 12 6s3.1.4 4.5 1.2"/><path d="M7.5 16.8C8.9 17.6 10.4 18 12 18s3.1-.4 4.5-1.2"/><path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-.972 2.923"/><path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3-.635-1.667-.476-5.833 1.428-11.5C6.151 4.485 7.545 4.16 9 4l1 3"/></svg>`,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/hkg",
+    href: "https://linkedin.com/in/hkg",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>`,
+  },
+];
+---
+
+<Layout title="Contact Me — hkg">
+  <main class="mx-auto max-w-2xl px-4 py-12 sm:px-6">
+    <div class="mb-10">
+      <h1 class="text-3xl font-semibold tracking-tight">Contact Me</h1>
+    </div>
+
+    <div class="space-y-3">
+      {
+        contacts.map((c) => (
+          <a
+            href={c.href}
+            target={c.href.startsWith("http") ? "_blank" : undefined}
+            rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            class="group flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900 p-4 transition-all hover:border-[#ff00ae]/40 hover:bg-neutral-800"
+          >
+            <div
+              class="h-5 w-5 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"
+              set:html={c.icon}
+            />
+            <div class="flex-1 min-w-0">
+              <span class="text-xs opacity-50 block">{c.label}</span>
+              <span class="text-sm font-medium truncate">{c.value}</span>
+              {c.note && (
+                <span class="text-xs opacity-40 ml-2">{c.note}</span>
+              )}
+            </div>
+            <svg
+              class="h-3.5 w-3.5 opacity-20 group-hover:opacity-60 transition-opacity shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        ))
+      }
+
+      <a
+        href="/carrier-pigeon"
+        class="group flex items-center gap-4 rounded-xl border border-dashed border-neutral-700 bg-neutral-900/50 p-4 transition-all hover:border-[#ff00ae]/40 hover:bg-neutral-800"
+      >
+        <svg
+          class="h-5 w-5 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M16 7h.01M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/>
+          <path d="m20 7 2 .5-2 .5"/>
+          <path d="M10 18v3"/>
+          <path d="M14 17.75V21"/>
+          <path d="M7 18a6 6 0 0 0 3.84-10.61"/>
+        </svg>
+        <div class="flex-1">
+          <span class="text-xs opacity-50 block">Carrier Pigeon</span>
+          <span class="text-sm font-medium">Send a carrier pigeon</span>
+        </div>
+        <svg
+          class="h-3.5 w-3.5 opacity-20 group-hover:opacity-60 transition-opacity shrink-0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </main>
+</Layout>

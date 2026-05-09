@@ -1,0 +1,136 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProductCart from "../../components/ProductCart.tsx";
+
+const products = [
+  {
+    id: "p1",
+    name: "Minimal Notebook",
+    price: 18,
+    description: "A/5 dotted notebook, 160 pages, lay-flat binding.",
+    longDescription: `The kind of notebook you reach for instead of your phone. A5 format because it's portable but substantial. Dotted grid because it works for writing, sketching, and everything in between. The lay-flat binding means it actually opens flat on a desk, which sounds small but makes a daily difference. 160 pages of 90gsm paper — no bleed-through from most pens. The cover is thick board wrapped in Japanese bookbinding cloth.`,
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=900&q=85",
+    category: "stationery",
+    details: ["A5 format (148 × 210mm)", "160 pages, dotted grid", "90gsm acid-free paper", "Lay-flat binding", "Cloth-wrapped hardcover"],
+  },
+  {
+    id: "p2",
+    name: "Ceramic Pour-Over",
+    price: 45,
+    description: "Hand-thrown ceramic dripper. No two are exactly alike.",
+    longDescription: `A proper pour-over dripper that's as much about the ritual as the coffee. Hand-thrown in a small studio, which means each one has minor variations. The ridges inside are spaced for a 3–4 minute brew with medium-fine grounds. Works with all 02 cone filters.`,
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85",
+    category: "kitchen",
+    details: ["Hand-thrown stoneware", "Fits standard 02 cone filters", "High-fire ceramic glaze", "Dishwasher safe", "Made to order — allow 2–3 weeks"],
+  },
+  {
+    id: "p3",
+    name: "Linen Tote",
+    price: 32,
+    description: "Heavy-weight natural linen. Inside pocket.",
+    longDescription: `Natural undyed linen, heavy enough to hold its shape when full. The inside pocket fits a standard paperback or phone. Handles long enough for a shoulder carry. The linen softens with washing and develops its own character over time.`,
+    image: "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=900&q=85",
+    category: "accessories",
+    details: ["12 oz natural undyed linen", "40 × 35cm bag, 60cm handles", "Inside flat pocket", "Machine washable (cold)", "Natural rope handles"],
+  },
+  {
+    id: "p4",
+    name: "Brass Pen",
+    price: 55,
+    description: "Solid brass, machined to tight tolerances.",
+    longDescription: `Machined from solid brass rod on a CNC lathe. The weight sits in the hand like a good tool should. Ships with a Schmidt EasyFlow refill installed, takes any standard D1 cartridge. The brass will oxidize and patina naturally.`,
+    image: "https://images.unsplash.com/photo-1586439497518-c71ac8b3a9a4?w=900&q=85",
+    category: "stationery",
+    details: ["Solid brass, machined", "140mm capped, 120mm posted", "Schmidt EasyFlow 9000 included", "D1 refill compatible", "Will patina naturally"],
+  },
+  {
+    id: "p5",
+    name: "Beeswax Candle",
+    price: 24,
+    description: "100% beeswax. Burns clean for 60+ hours.",
+    longDescription: `Pure beeswax, no additives, no fragrance beyond the natural honey scent of the wax itself. Burns significantly cleaner than paraffin. The 60+ hour burn time is real if you keep the wick trimmed to 6mm. The jar is reusable.`,
+    image: "https://images.unsplash.com/photo-1602874801006-8d209e4a5c23?w=900&q=85",
+    category: "home",
+    details: ["100% pure beeswax", "200g / 7oz", "60+ hour burn time", "Natural honey scent only", "Glass jar, reusable after"],
+  },
+  {
+    id: "p6",
+    name: "Merino Wool Beanie",
+    price: 38,
+    description: "100% extra-fine merino. One size.",
+    longDescription: `Extra-fine merino wool — the kind that doesn't itch. Knit to a specific gauge that gives it enough structure to hold its shape. Ribbed cuff folds up to adjust the fit. Machine washable on cold, lay flat to dry. Available in slate grey, sand, and black.`,
+    image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=900&q=85",
+    category: "accessories",
+    details: ["100% 17.5 micron merino wool", "One size fits most", "Ribbed, fold-up cuff", "Machine wash cold, lay flat dry", "Colors: slate, sand, black"],
+  },
+];
+
+const { id } = Astro.params;
+const product = products.find((p) => p.id === id);
+
+if (!product) {
+  return Astro.redirect("/shop");
+}
+---
+
+<Layout title={`${product.name} — hkg`}>
+  <main class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <a
+      href="/shop"
+      class="mb-8 inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+    >
+      <svg
+        class="h-3.5 w-3.5"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m12 19-7-7 7-7"></path>
+        <path d="M19 12H5"></path>
+      </svg>
+      Shop
+    </a>
+
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 mt-6">
+      <div class="overflow-hidden rounded-2xl">
+        <img
+          src={product.image}
+          alt={product.name}
+          class="h-full w-full object-cover brightness-75"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <span class="text-xs font-medium uppercase tracking-widest text-neutral-500">
+          {product.category}
+        </span>
+        <h1 class="mt-1 text-2xl font-semibold text-white">{product.name}</h1>
+        <p class="mt-1 text-xl font-medium text-neutral-400">${product.price}</p>
+
+        <p class="mt-5 text-sm text-neutral-400 leading-relaxed">
+          {product.longDescription}
+        </p>
+
+        <ul class="mt-6 space-y-1.5">
+          {product.details.map((d) => (
+            <li class="flex items-center gap-2 text-xs text-neutral-500">
+              <span class="h-1 w-1 rounded-full bg-neutral-600 shrink-0" />
+              {d}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-8">
+          <ProductCart
+            client:load
+            product={{ id: product.id, name: product.name, price: product.price, image: product.image }}
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

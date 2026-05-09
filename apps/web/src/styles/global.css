@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
-/* Add your theme customizations here. */
-/* See the TailwindCSS v4 docs for more info: https://tailwindcss.com/docs/v4-beta */
-
 @theme {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Unlayered — beats all @layer utilities, so #ff00ae wins over text-white etc. */
+* {
+  color: #ff00ae;
 }

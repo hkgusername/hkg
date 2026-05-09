@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const trips = [
+  {
+    id: "t1",
+    place: "Kyoto, Japan",
+    date: "March 2024",
+    duration: "12 days",
+    image:
+      "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+    highlight: "Fushimi Inari at 5am before anyone else arrives.",
+    notes: `Japan broke something open in me. The precision of it — the way a bowl of ramen is taken as seriously as a cathedral. I walked 15km a day through Kyoto's backstreets and temple districts, ate everything I could find, and came home with a completely reorganized sense of what quality means. The bullet train. The convenience stores. The way every single person seemed to take their work seriously regardless of what it was. I've been trying to bring a piece of that back ever since.`,
+  },
+  {
+    id: "t2",
+    place: "Lisbon, Portugal",
+    date: "September 2023",
+    duration: "9 days",
+    image:
+      "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=800&q=80",
+    highlight:
+      "Getting lost in Alfama on the second night, following fado music into a tiny restaurant.",
+    notes: `Lisbon is the city that feels like it was designed specifically for wandering. Seven hills, a thousand staircases, and that particular golden light that makes everything look like it belongs in a painting. I arrived knowing nothing and left feeling like I understood something important about slowness. The Portuguese relationship with time — saudade and all that — is genuinely infectious if you give it a few days to work on you.`,
+  },
+  {
+    id: "t3",
+    place: "Oaxaca, Mexico",
+    date: "January 2023",
+    duration: "7 days",
+    image:
+      "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800&q=80",
+    highlight:
+      "Cooking class in a family home, learning to make mole negro from scratch.",
+    notes: `The food alone would be worth the trip. But Oaxaca is also one of those places where indigenous culture, colonial architecture, and contemporary art have somehow blended into something coherent and alive. The markets are extraordinary. I ate three tlayudas a day and have no regrets. The mezcal is, against all expectations, even better than they say.`,
+  },
+  {
+    id: "t4",
+    place: "Copenhagen, Denmark",
+    date: "June 2022",
+    duration: "6 days",
+    image:
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
+    highlight:
+      "A Sunday afternoon cycling through the city with nowhere particular to be.",
+    notes: `The most functional city I've ever visited. Cycling infrastructure, public spaces, architecture — all of it working together like they actually thought about it. Noma was closed the week I was there, but I ate better than I expected everywhere else. There's something about Scandinavian design sensibility that just makes you want to throw out half of everything you own and start again.`,
+  },
+  {
+    id: "t5",
+    place: "Ha Long Bay, Vietnam",
+    date: "November 2021",
+    duration: "3 days",
+    image:
+      "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
+    highlight: "Kayaking through limestone caves at dawn, completely alone.",
+    notes: `I wasn't expecting to be as overwhelmed as I was. Photos don't prepare you — the scale is impossible to understand until you're inside it, with limestone karsts rising hundreds of meters out of still green water and fog threading through the gaps. Three days on a small boat, good food, and the feeling of being genuinely somewhere far from everything familiar.`,
+  },
+];
+---
+
+<Layout title="Travel Timeline — hkg">
+  <main class="mx-auto max-w-2xl px-4 py-12 sm:px-6">
+    <div class="mb-10">
+      <h1 class="text-3xl font-semibold tracking-tight text-white">
+        Travel Timeline
+      </h1>
+      <p class="mt-2 text-sm text-neutral-500">
+        Places I've been. Written from memory, so not entirely reliable.
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute left-0 top-0 h-full w-px bg-neutral-800"></div>
+
+      <div class="space-y-10 pl-6">
+        {
+          trips.map((trip) => (
+            <div class="relative">
+              <div class="absolute -left-[25px] top-2 h-2.5 w-2.5 rounded-full border-2 border-neutral-600 bg-neutral-950" />
+
+              <div class="overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900">
+                <div class="h-52 overflow-hidden">
+                  <img
+                    src={trip.image}
+                    alt={trip.place}
+                    class="h-full w-full object-cover brightness-75 hover:brightness-90 transition-all duration-500"
+                  />
+                </div>
+                <div class="p-5">
+                  <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                    <h2 class="text-lg font-semibold text-white flex items-center gap-1.5">
+                      <svg
+                        class="h-4 w-4 text-neutral-500 shrink-0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      {trip.place}
+                    </h2>
+                    <div class="flex items-center gap-3 text-xs text-neutral-500">
+                      <span>{trip.date}</span>
+                      <span>{trip.duration}</span>
+                    </div>
+                  </div>
+                  <p class="text-sm font-medium text-neutral-300 mb-2 italic">
+                    "{trip.highlight}"
+                  </p>
+                  <p class="text-sm text-neutral-500 leading-relaxed">
+                    {trip.notes}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="mt-12 pl-6 text-xs text-neutral-600">
+      More to come. The list keeps growing.
+    </p>
+  </main>
+</Layout>

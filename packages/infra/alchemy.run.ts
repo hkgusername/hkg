@@ -9,8 +9,6 @@ const app = await alchemy("hkg");
 
 export const web = await Astro("web", {
   cwd: "../../apps/web",
-  entrypoint: "dist/server/entry.mjs",
-  assets: "dist/client",
   bindings: {
     PUBLIC_SERVER_URL: alchemy.env.PUBLIC_SERVER_URL!,
   },

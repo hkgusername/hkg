@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="phone is cigarette for the brain — hkg">
+  <main class="mx-auto max-w-2xl px-4 py-12 sm:px-6">
+    <div class="mb-10">
+      <h1
+        class="text-3xl font-semibold tracking-tight text-white"
+      >
+        phone is cigarette for the brain
+      </h1>
+      <p class="mt-3 text-sm text-neutral-500">A manifesto, of sorts.</p>
+    </div>
+
+    <div class="space-y-6 text-base text-neutral-300 leading-relaxed">
+      <p>
+        I need to tell you something and I'm going to say it plainly: your phone
+        is making you worse at being a person.
+      </p>
+      <p>
+        Not because technology is evil. Not because the internet is a wasteland.
+        But because the specific way most people use their phones — constantly,
+        compulsively, reflexively — is degrading something important in them.
+        The capacity for sustained attention. The tolerance for boredom. The
+        ability to be fully present in a room with another human being.
+      </p>
+      <p>
+        We've all seen it. The dinner table where everyone is looking at their
+        phones. The walk where someone can't go two minutes without checking
+        something. The meeting where people are half-present at best. We see it
+        in others and we judge it, and then we go and do exactly the same thing.
+      </p>
+
+      <h2 class="text-xl font-semibold text-white pt-4">
+        What you're actually losing
+      </h2>
+
+      <p>
+        Boredom is not a bug. It's a feature. When you're bored, your brain
+        doesn't go offline — it goes into a mode called the Default Mode
+        Network, which is associated with creativity, memory consolidation,
+        empathy, and self-reflection. This is when you have ideas. This is when
+        you make sense of your experiences. This is when you figure out how you
+        actually feel about things.
+      </p>
+      <p>
+        Every time you reach for your phone to fill a moment of silence, you're
+        interrupting that process. You're not just wasting time. You're actively
+        preventing the kind of thinking that makes you more creative, more
+        emotionally intelligent, and more interesting to be around.
+      </p>
+      <p>
+        Meanwhile, the platforms themselves are designed by armies of very smart
+        people whose full-time job is to make the app as difficult to put down
+        as possible. You are not weak. You are up against something engineered
+        specifically to exploit the way your brain works. But that doesn't mean
+        you can't fight back.
+      </p>
+
+      <h2 class="text-xl font-semibold text-white pt-4">
+        What I actually suggest
+      </h2>
+
+      <p>
+        I'm not telling you to delete everything and move to a cabin. I'm asking
+        you to try some things and see how they feel.
+      </p>
+
+      <ul class="space-y-2.5 pl-2">
+        {
+          [
+            "No phone for the first 30 minutes after waking up. Seriously. Not even a quick check. Just those 30 minutes, every day.",
+            "No phone at dinner. Put it face-down across the room. Have the conversation.",
+            "When you're waiting for something — in a queue, at a light, for a friend — just wait. Don't fill it. Let the thought come.",
+            "When you're walking somewhere, don't listen to anything sometimes. Just walk and think.",
+            "Charge your phone outside your bedroom. Buy an alarm clock. Sleep better.",
+            "Delete the apps you open out of habit, not out of intention. If you're opening it 40 times a day without meaning to, delete it.",
+            "Designate phone-free times. Mine is after 9pm. It's not always perfect but it's mostly maintained.",
+          ].map((item) => (
+            <li class="flex gap-3">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-600" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2 class="text-xl font-semibold text-white pt-4">The harder argument</h2>
+
+      <p>
+        There's a version of this argument that goes: the phone is just a tool,
+        and tools aren't the problem, it's how you use them. This is true and
+        also slightly dishonest, because these particular tools are designed with
+        the explicit goal of maximizing the time you spend using them. They are
+        not neutral.
+      </p>
+      <p>
+        The people who built them know this. Many of them don't let their own
+        children use the products. That should tell you something.
+      </p>
+      <p>
+        I'm not asking you to be perfect. I'm asking you to be a little more
+        intentional about something that's quietly consuming enormous portions of
+        your life and attention, and whether the exchange is actually worth it.
+      </p>
+      <p>Most of us, if we're honest, would say it isn't.</p>
+
+      <div class="mt-8 rounded-xl bg-white p-6 text-neutral-900 font-medium">
+        Put the phone down. Look up. Something interesting is probably happening
+        right in front of you.
+      </div>
+    </div>
+  </main>
+</Layout>
