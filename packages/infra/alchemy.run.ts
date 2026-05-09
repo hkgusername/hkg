@@ -12,7 +12,7 @@ const app = await alchemy("hkg", {
 export const web = await Astro("web", {
   cwd: "../../apps/web",
   bindings: {
-    PUBLIC_SERVER_URL: alchemy.env.PUBLIC_SERVER_URL!,
+    PUBLIC_SERVER_URL: process.env.PUBLIC_SERVER_URL ?? "https://hkg.org",
   },
 });
 
