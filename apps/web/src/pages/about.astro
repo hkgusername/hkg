@@ -3,109 +3,61 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About Me — hkg">
-  <main class="mx-auto max-w-2xl px-4 py-12 sm:px-6">
-    <div class="mb-10 animate-fade-up">
+  <main class="mx-auto max-w-xl px-4 py-12 sm:px-6">
+    <div class="mb-10">
       <h1 class="text-3xl font-semibold tracking-tight text-white">About Me</h1>
-      <p class="mt-2 text-sm text-neutral-500">The long version.</p>
-    </div>
-
-    <div class="aspect-[3/1] overflow-hidden rounded-2xl mb-10">
-      <img
-        src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=85"
-        alt="workspace"
-        class="h-full w-full object-cover brightness-75"
-      />
     </div>
 
     <div class="space-y-5 text-base text-neutral-300 leading-relaxed">
       <p>
-        Hey — I'm hkg. I build things, read things, and spend a lot of time
-        thinking about how people spend their time.
+        Welcome to my page. My name is Haroon but sometimes people call me hkg or just H.
+        If you found your way here, chances are, you were handed an inconspicuous business
+        card with a url and trusted it enough to punch it into your search engine of choice.
       </p>
       <p>
-        I grew up curious. The kind of kid who took apart everything just to see
-        how it worked — and occasionally put it back together. That curiosity
-        never really left. It just got more structured over time, pointed in the
-        direction of software, systems, and the messy, fascinating problem of
-        how humans interact with technology.
+        This website is made to be a creative outlet etc etc but really I just saw someone
+        else's website and thought it was super cool, so I copied the entire thing. And made
+        it pink of course.
       </p>
       <p>
-        I care about building things that are genuinely useful — not just clever
-        or shiny. I have a soft spot for good writing, long walks, and physical
-        books. I believe most problems can be solved by thinking slowly and
-        working patiently.
+        I've included some inspiration, advice, and knowledge that I have collected over the
+        years, as well as just some things I'm passionate about.
+      </p>
+      <p>
+        I like trying new things, meeting interesting people, and questioning everything ever
+        in life. I also like normal guy stuff like cars, the gym, guns, music, and video games.
+        I think it's worth mentioning that I have an incredibly optimistic outlook on life and
+        everyone around me.{" "}
+        <a
+          href="/history"
+          class="text-white underline underline-offset-2 hover:text-neutral-400 transition-colors"
+        >click here for the history of me.</a>
       </p>
     </div>
 
     <div class="border-t border-neutral-800 pt-8 mt-10">
-      <h2 class="text-xl font-semibold text-white mb-4">What I'm Doing Now</h2>
+      <h2 class="text-lg font-semibold text-white mb-5">hkg stats</h2>
       <ul class="space-y-2.5 text-sm text-neutral-400">
-        <li class="flex gap-2">
-          <span class="text-neutral-700 shrink-0">—</span>
-          Building this website, apparently.
-        </li>
-        <li class="flex gap-2">
-          <span class="text-neutral-700 shrink-0">—</span>
-          Reading more than I probably should.
-        </li>
-        <li class="flex gap-2">
-          <span class="text-neutral-700 shrink-0">—</span>
-          Trying to spend less time on the internet (see: <a
-            href="/get-off-the-phones"
-            class="text-white underline underline-offset-2 hover:text-neutral-300 transition-colors"
-            >GET OFF THE PHONES</a
-          >).
-        </li>
-        <li class="flex gap-2">
-          <span class="text-neutral-700 shrink-0">—</span>
-          Cooking more at home, mostly succeeding.
-        </li>
+        {[
+          ["Clash Royale trophies", "11,536"],
+          ["Intro to Geology grade", "C"],
+          ["Chipotle bowls eaten", "455"],
+          ["Cross country road trips", "1"],
+          ["Countries traveled to", "16"],
+          ["Secret Hitler games won", "52"],
+          ["Poker profits", "-$590"],
+          ["Unread emails", "10,400"],
+          ["NDAs signed", "178"],
+          ["Business cards handed out", "70"],
+          ["Oscars won", "0"],
+          ["Websites stolen", "1"],
+        ].map(([label, value]) => (
+          <li class="flex justify-between gap-4">
+            <span class="text-neutral-500">{label}</span>
+            <span class="text-white tabular-nums">{value}</span>
+          </li>
+        ))}
       </ul>
-    </div>
-
-    <div class="border-t border-neutral-800 pt-8 mt-8">
-      <h2 class="text-xl font-semibold text-white mb-4">Interests</h2>
-      <div class="flex flex-wrap gap-2">
-        {
-          [
-            "software",
-            "reading",
-            "travel",
-            "long-form journalism",
-            "urban design",
-            "cooking",
-            "film",
-            "running",
-            "history",
-            "design systems",
-          ].map((tag) => (
-            <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-400">
-              {tag}
-            </span>
-          ))
-        }
-      </div>
-    </div>
-
-    <div class="border-t border-neutral-800 pt-8 mt-8">
-      <h2 class="text-xl font-semibold text-white mb-4">The honest version</h2>
-      <div class="space-y-4 text-base text-neutral-300 leading-relaxed">
-        <p>
-          I overthink things more than I should and underprepare for things more
-          than I'd like. I make good coffee and occasionally give advice that
-          turns out to be useful. I'm better in writing than in person, but I'm
-          working on it. I believe the internet peaked sometime around 2008 and
-          we've been slowly losing something ever since — hence <a
-            href="/get-off-the-phones"
-            class="text-white underline underline-offset-2 hover:text-neutral-300 transition-colors"
-            >this</a
-          >.
-        </p>
-        <p>
-          If you've read this far, you're probably a little like me. In which
-          case: hello, and welcome.
-        </p>
-      </div>
     </div>
   </main>
 </Layout>
