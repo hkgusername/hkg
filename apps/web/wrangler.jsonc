@@ -9,15 +9,5 @@
   },
   "vars": {
     "PUBLIC_SERVER_URL": "https://hkg.gg"
-  },
-  "routes": [
-    {
-      "pattern": "hkg.gg",
-      "custom_domain": true
-    },
-    {
-      "pattern": "www.hkg.gg",
-      "custom_domain": true
-    }
-  ]
+  }
 }
