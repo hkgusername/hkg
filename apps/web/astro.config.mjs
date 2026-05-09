@@ -1,35 +1,28 @@
-import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 // @ts-check
+import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
-import alchemy from "alchemy/cloudflare/astro";
 import { defineConfig, envField } from "astro/config";
-const alchemyConfigPath = fileURLToPath(
-  new URL("./.alchemy/local/wrangler.jsonc", import.meta.url),
-);
 const forceNodeLocal =
   process.env.ASTRO_LOCAL_NODE === "1" ||
   process.env.ASTRO_LOCAL_NODE === "true";
-const shouldUseAlchemy = !forceNodeLocal && existsSync(alchemyConfigPath);
 const cloudflareWorkersShimPath = fileURLToPath(
   new URL("../../packages/env/src/cloudflare-local.ts", import.meta.url),
 );
-const cloudflareWorkersAlias = shouldUseAlchemy
-  ? {}
-  : {
+const cloudflareWorkersAlias = forceNodeLocal
+  ? {
       "cloudflare:workers": cloudflareWorkersShimPath,
-    };
+    }
+  : {};
 import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   integrations: [react()],
-  adapter: shouldUseAlchemy
-    ? alchemy({ platformProxy: { configPath: alchemyConfigPath } })
-    : node({ mode: "standalone" }),
+  adapter: forceNodeLocal ? node({ mode: "standalone" }) : cloudflare(),
   env: {
     schema: {
       PUBLIC_SERVER_URL: envField.string({

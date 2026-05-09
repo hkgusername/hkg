@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hkg",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-05-09",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "PUBLIC_SERVER_URL": "https://hkg.gg"
+  },
+  "routes": [
+    {
+      "pattern": "hkg.gg",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.hkg.gg",
+      "custom_domain": true
+    }
+  ]
+}

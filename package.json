@@ -12,7 +12,7 @@
     "build": "pnpm -r build",
     "check-types": "pnpm -r check-types",
     "dev:web": "pnpm --filter web dev",
-    "deploy": "pnpm --filter @hkg/infra deploy",
+    "deploy": "pnpm --filter web build && pnpm --filter web deploy",
     "destroy": "pnpm --filter @hkg/infra destroy",
     "check": "biome check --write ."
   },

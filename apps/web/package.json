@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "build": "astro build",
+    "deploy": "wrangler deploy",
     "preview": "astro preview",
     "astro": "astro",
     "dev": "ASTRO_LOCAL_NODE=1 astro dev",
-    "dev:bare": "astro dev",
-    "dev:alchemy": "astro dev"
+    "dev:bare": "astro dev"
   },
   "dependencies": {
     "@astrojs/node": "^10.0.0-beta.9",
@@ -32,8 +32,8 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "alchemy": "catalog:",
     "tailwindcss": "^4.1.18",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "wrangler": "^4.55.0"
   }
 }
