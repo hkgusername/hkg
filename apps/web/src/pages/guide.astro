@@ -1,198 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const sections = [
-  {
-    title: "Books Worth Reading Twice",
-    items: [
-      {
-        name: "Thinking, Fast and Slow — Daniel Kahneman",
-        note: "The foundation for understanding why your brain lies to you. Dense but worth every page.",
-      },
-      {
-        name: "The Almanack of Naval Ravikant",
-        note: "Freely available online. On wealth, happiness, and how to think. Read slowly.",
-        url: "https://www.navalmanack.com/",
-      },
-      {
-        name: "The Righteous Mind — Jonathan Haidt",
-        note: "Explains why smart, good-faith people disagree on politics. Changed how I argue.",
-      },
-      {
-        name: "How to Take Smart Notes — Sönke Ahrens",
-        note: "The Zettelkasten method explained properly. Transformed how I read and write.",
-      },
-      {
-        name: "Range — David Epstein",
-        note: "A defense of being a generalist. Required reading for anyone who's ever felt behind.",
-      },
-    ],
-  },
-  {
-    title: "Apps & Tools I Use Daily",
-    items: [
-      {
-        name: "Obsidian",
-        note: "Local-first note-taking. Markdown files that you actually own. Been using it for 3+ years.",
-        url: "https://obsidian.md",
-      },
-      {
-        name: "Raycast",
-        note: "Mac launcher that replaced Spotlight, Alfred, and about 6 other things. Free tier is excellent.",
-        url: "https://www.raycast.com",
-      },
-      {
-        name: "Arc Browser",
-        note: "The only browser that made me rethink how I use the web. Spaces changed how I work.",
-        url: "https://arc.net",
-      },
-      {
-        name: "1Password",
-        note: "Password manager. Non-negotiable in 2024. The family plan is worth it.",
-        url: "https://1password.com",
-      },
-      {
-        name: "Readwise Reader",
-        note: "Where I read everything: RSS, newsletters, saved articles, PDFs. The highlights sync is magic.",
-        url: "https://readwise.io/read",
-      },
-    ],
-  },
-  {
-    title: "Websites Worth Visiting",
-    items: [
-      {
-        name: "Marginal Revolution",
-        note: "Tyler Cowen and Alex Tabarrok on economics, culture, and everything in between. Daily reading.",
-        url: "https://marginalrevolution.com",
-      },
-      {
-        name: "Wait But Why",
-        note: "Long-form essays with stick figures. Some of the best writing on the internet.",
-        url: "https://waitbutwhy.com",
-      },
-      {
-        name: "Gwern.net",
-        note: "One person's extraordinary catalog of thinking on everything from drugs to AI. Rabbit hole warning.",
-        url: "https://gwern.net",
-      },
-      {
-        name: "The Browser",
-        note: "Five articles worth reading, curated daily. Has been reliably excellent for years.",
-        url: "https://thebrowser.com",
-      },
-    ],
-  },
-  {
-    title: "Habits That Actually Work",
-    items: [
-      {
-        name: "Morning pages",
-        note: "Three pages of longhand stream-of-consciousness writing first thing. Clears the mental fog.",
-      },
-      {
-        name: 'A "done list" instead of a to-do list',
-        note: "At end of day, write down what you actually accomplished. Wildly more motivating.",
-      },
-      {
-        name: "No phone until after coffee",
-        note: "The first 30 minutes of your day are yours. Don't give them away.",
-      },
-      {
-        name: "Weekly review",
-        note: "Sunday evening, 20 minutes. Review the week, plan the next. Not optional.",
-      },
-      {
-        name: "Reading in paper, note-taking in digital",
-        note: "Physical books for retention, Obsidian for synthesis. Best of both worlds.",
-      },
-    ],
-  },
-  {
-    title: "Things to do in every new city",
-    items: [
-      { name: "Walk until you're lost, then find your way back." },
-      { name: "Go to a local market on a weekday morning." },
-      { name: "Find the spot where locals actually eat breakfast." },
-      { name: "Visit the city's best independent bookstore." },
-      {
-        name: "Go to one museum and spend 2 hours in it, not 20 minutes.",
-      },
-    ],
-  },
+const items: { text: string; underline?: boolean; spacer?: boolean }[] = [
+  { text: "Open Your Mind", spacer: true },
+  { text: "Curse of knowledge", underline: true },
+  { text: "Sunk cost fallacy" },
+  { text: "Familiar chaos vs unfamiliar peace" },
+  { text: "Understand bubbles" },
+  { text: "Belief vs Truth" },
+  { text: "Maslow's Hierarchy of Needs", underline: true },
+  { text: "Ask good questions" },
+  { text: "Unthink consumerism" },
+  { text: "Understand biases (confirmation, framing, anchoring, availability, false consensus, self-serving)", underline: true },
+  { text: "Think critically" },
+  { text: "Do takeaways" },
+  { text: "Have hard conversations" },
+  { text: "Be skeptical" },
+  { text: "If you truly back your idea, don't drop it for anything" },
+  { text: "Do things you suck at" },
+  { text: "All good work starts with definitions!!!" },
 ];
 ---
 
 <Layout title="HKG's Guide — hkg">
-  <main class="mx-auto max-w-2xl px-4 py-12 sm:px-6">
+  <main class="mx-auto max-w-xl px-4 py-12 sm:px-6">
     <div class="mb-10">
-      <h1 class="text-3xl font-semibold tracking-tight text-white">
-        HKG's Guide
-      </h1>
-      <p class="mt-2 text-sm text-neutral-500">
-        Things I recommend unreservedly. Updated when I find something new worth
-        adding.
-      </p>
+      <h1 class="text-3xl font-semibold tracking-tight text-white">HKG's Guide</h1>
+      <p class="mt-2 text-sm text-neutral-500">make it make sense</p>
     </div>
 
-    <div class="space-y-10">
-      {
-        sections.map((section) => (
-          <div>
-            <h2 class="mb-4 text-lg font-semibold text-white border-b border-neutral-800 pb-2">
-              {section.title}
-            </h2>
-            <ul class="space-y-4">
-              {section.items.map((item) => (
-                <li class="flex gap-3">
-                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-600" />
-                  <div>
-                    {item.url ? (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-1 font-medium text-white hover:text-neutral-300 transition-colors"
-                      >
-                        {item.name}
-                        <svg
-                          class="h-3 w-3 text-neutral-500"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="M15 3h6v6" />
-                          <path d="M10 14 21 3" />
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        </svg>
-                      </a>
-                    ) : (
-                      <span class="font-medium text-white">{item.name}</span>
-                    )}
-                    {item.note && (
-                      <p class="mt-0.5 text-sm text-neutral-500 leading-relaxed">
-                        {item.note}
-                      </p>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
-
-    <div
-      class="mt-12 rounded-xl border border-neutral-800 bg-neutral-900 p-5 text-sm text-neutral-500"
-    >
-      <strong class="text-neutral-300">Disclosure:</strong> No affiliate links.
-      No sponsorships. Nothing here is paid for. If something's here, it's because
-      I genuinely use it and think you should too.
-    </div>
+    <ul class="space-y-3">
+      {items.map((item) => (
+        <li class={`flex gap-3 text-sm text-neutral-300 leading-relaxed${item.spacer ? " mb-3" : ""}`}>
+          <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-600" />
+          <span class={item.underline ? "underline underline-offset-2" : ""}>{item.text}</span>
+        </li>
+      ))}
+    </ul>
   </main>
 </Layout>

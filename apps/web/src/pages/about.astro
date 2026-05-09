@@ -35,29 +35,5 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </div>
 
-    <div class="border-t border-neutral-800 pt-8 mt-10">
-      <h2 class="text-lg font-semibold text-white mb-5">hkg stats</h2>
-      <ul class="space-y-2.5 text-sm text-neutral-400">
-        {[
-          ["Clash Royale trophies", "11,536"],
-          ["Intro to Geology grade", "C"],
-          ["Chipotle bowls eaten", "455"],
-          ["Cross country road trips", "1"],
-          ["Countries traveled to", "16"],
-          ["Secret Hitler games won", "52"],
-          ["Poker profits", "-$590"],
-          ["Unread emails", "10,400"],
-          ["NDAs signed", "178"],
-          ["Business cards handed out", "70"],
-          ["Oscars won", "0"],
-          ["Websites stolen", "1"],
-        ].map(([label, value]) => (
-          <li class="flex justify-between gap-4">
-            <span class="text-neutral-500">{label}</span>
-            <span class="text-white tabular-nums">{value}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
   </main>
 </Layout>
