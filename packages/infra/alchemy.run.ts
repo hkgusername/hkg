@@ -1,11 +1,14 @@
 import alchemy from "alchemy";
-import { Astro } from "alchemy/cloudflare";
+import { Astro, CloudflareStateStore } from "alchemy/cloudflare";
 import { config } from "dotenv";
 
 config({ path: "./.env" });
 config({ path: "../../apps/web/.env" });
 
-const app = await alchemy("hkg");
+const app = await alchemy("hkg", {
+  stage: "prod",
+  stateStore: (scope) => new CloudflareStateStore(scope),
+});
 
 export const web = await Astro("web", {
   cwd: "../../apps/web",
