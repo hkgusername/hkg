@@ -4,38 +4,41 @@ const sections = [
   {
     slug: "/about",
     name: "About Me",
-    thumb:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80",
+    thumb: "/emmet.jpg",
+    objectPosition: "40% center",
+    filter: "brightness(0.9)",
   },
   {
     slug: "/yt-videos",
-    name: "Good YT Videos",
-    thumb:
-      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80",
+    name: "Good Videos",
+    thumb: "/piece.jpg",
+    objectPosition: "center 50%",
+    imgTransform: "scale(1.4)",
+    filter: "brightness(0.95) saturate(1.2) contrast(1.25)",
   },
   {
     slug: "/travel",
     name: "hkg stats",
-    thumb:
-      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&q=80",
+    thumb: "/benny.jpg",
   },
   {
     slug: "/guide",
     name: "HKG's Guide",
-    thumb:
-      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80",
+    thumb: "/vitr.jpg",
   },
   {
     slug: "/get-off-the-phones",
     name: "phone is cigarette for the brain",
-    thumb:
-      "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&q=80",
+    thumb: "/lord-business.jpg",
+    objectPosition: "45% 15%",
+    filter: "brightness(0.75) contrast(1.15) saturate(1.2)",
   },
   {
     slug: "/contact",
     name: "Contact Me",
-    thumb:
-      "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=600&q=80",
+    thumb: "/unikitty.jpg",
+    objectPosition: "65% center",
+    filter: "brightness(0.75) contrast(1.1) saturate(1.4)",
   },
 ];
 
@@ -56,7 +59,12 @@ export default function CardGrid() {
               <img
                 src={section.thumb}
                 alt={section.name}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75"
+                style={{
+                  ...(section.objectPosition ? { objectPosition: section.objectPosition } : {}),
+                  ...(section.filter ? { filter: section.filter } : {}),
+                  ...(section.imgTransform ? { transform: section.imgTransform } : {}),
+                }}
+                className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${section.filter ? "" : section.saturate ? "brightness-90 saturate-150" : "brightness-75"}`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent" />
             </div>
