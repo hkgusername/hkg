@@ -23,7 +23,7 @@ const sections = [
   },
   {
     slug: "/guide",
-    name: "HKG's Guide",
+    name: "HKG Guide",
     thumb: "/vitr.jpg",
   },
   {
