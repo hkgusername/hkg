@@ -10,7 +10,7 @@ const items: { text: string; underline?: boolean; suffix?: string }[] = [
   { text: "Maslow's Hierarchy of Needs", underline: true },
   { text: "Ask good questions" },
   { text: "Unthink consumerism" },
-  { text: "Understand biases", underline: true, suffix: " (confirmation, framing, anchoring, availability, false consensus, self-serving, projection bias)" },
+  { text: "Understand biases", underline: true, suffix: " (confirmation, framing, anchoring, availability, false consensus, self-serving, projection)" },
   { text: "Think critically" },
   { text: "Do takeaways" },
   { text: "Have hard conversations" },
@@ -38,6 +38,8 @@ const items: { text: string; underline?: boolean; suffix?: string }[] = [
       <h1 class="text-3xl font-semibold tracking-tight text-white">HKG Guide</h1>
       <p class="mt-2 text-sm text-neutral-500">make it make sense</p>
     </div>
+
+    <p class="mb-5 text-sm text-neutral-500 italic">Open Your Mind</p>
 
     <ul class="space-y-3">
       {items.map((item) => (
